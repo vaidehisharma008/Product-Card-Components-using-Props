@@ -1,0 +1,60 @@
+/* Reset and full-screen setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: hsla(189, 74%, 46%, 0.83); /* soft green background */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main app container */
+.App {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Product list layout */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual product card */
+.product-card {
+  background-color: #e04e1d; /* soft red card */
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Text styling */
+.product-card h2,
+.product-card p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 768px) {
+  .product-card {
+    width: 80%;
+  }
+
+  .App {
+    padding: 10px;
+  }
+}
