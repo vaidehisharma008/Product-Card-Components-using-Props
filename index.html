@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products List</title>
+  <style>
+    /* Reset and full-screen setup */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-color: hsla(189, 74%, 46%, 0.83); /* soft green background */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Main app container */
+    .App {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    /* Product list layout */
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Individual product card */
+    .product-card {
+      background-color: #e04e1d; /* soft red card */
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      padding: 15px;
+      width: 250px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Text styling */
+    .product-card h2,
+    .product-card p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    /* Responsive tweaks for small screens */
+    @media (max-width: 768px) {
+      .product-card {
+        width: 80%;
+      }
+
+      .App {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="App">
+    <h1>🛒 Products List</h1>
+    <div class="product-list" id="product-list">
+      <!-- Product cards will be added here by JS -->
+    </div>
+  </div>
+
+  <script>
+    // Product data
+    const products = [
+      { name: 'Wireless Mouse', price: 25.99, status: 'In Stock' },
+      { name: 'Keyboard', price: 45.5, status: 'Out of Stock' },
+      { name: 'Monitor', price: 199.99, status: 'In Stock' },
+    ];
+
+    const productList = document.getElementById('product-list');
+
+    // Function to create product card
+    function createProductCard(product) {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+
+      const name = document.createElement('h2');
+      name.textContent = product.name;
+
+      const price = document.createElement('p');
+      price.textContent = `💲 Price: $${product.price}`;
+
+      const status = document.createElement('p');
+      status.textContent = product.status === 'In Stock' ? '✅ In Stock' : '❌ Out of Stock';
+
+      card.appendChild(name);
+      card.appendChild(price);
+      card.appendChild(status);
+
+      return card;
+    }
+
+    // Render all products
+    products.forEach(product => {
+      const card = createProductCard(product);
+      productList.appendChild(card);
+    });
+  </script>
+</body>
+</html>
